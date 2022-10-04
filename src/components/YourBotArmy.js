@@ -1,18 +1,22 @@
 import React from "react";
-
-function YourBotArmy() {
-  //your bot army code here...
-
-  return (
-    <div className="ui segment inverted olive bot-army">
-      <div className="ui five column grid">
-        <div className="row bot-army-row">
-          {/*...and here...*/}
-          Your Bot Army
-        </div>
-      </div>
-    </div>
-  );
+import BotCard from "./BotCard";
+function YourBotArmy({ army, deleteBot, removeBot }) {
+	const bots = army;
+	return (
+		<div className="ui segment inverted olive bot-army">
+			<div className="ui five column grid">
+				<div className="row bot-army-row">
+					{bots.map((bot) => (
+						<BotCard
+							key={bot.id}
+							bot={bot}
+							onSelectBot={removeBot}
+							deleteBot={deleteBot}
+						/>
+					))}
+				</div>
+			</div>
+		</div>
+	);
 }
-
 export default YourBotArmy;
