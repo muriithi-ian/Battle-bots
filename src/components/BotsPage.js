@@ -33,7 +33,7 @@ function BotsPage() {
 	};
 	const deleteBot = async (bot) => {
 		try {
-			const res = await fetch(`http://localhost:8002/bots/${bot}`, {
+			await fetch(`http://localhost:8002/bots/${bot}`, {
 				method: "DELETE",
 			});
 			const removeMyBot = armyBots.filter((b) => b.id !== bot);
@@ -46,7 +46,6 @@ function BotsPage() {
 		setSelectBot(null);
 	};
 	const deEnlistBot = (bot) => {
-		console.log(bot);
 		const removeMyBot = armyBots.filter((b) => b.id !== bot.id);
 		setArmyBots(removeMyBot);
 	};
